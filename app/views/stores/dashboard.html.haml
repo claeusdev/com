@@ -1,9 +1,32 @@
 .wrapper
-	-if @store.products.count == 0
-		%p Please add your first product
-		= button_to "Add first item", new_store_product_path(@store), method: :get
+	.col
+		.half
+			.module
+				.module__header Products
+				.module__details
+					= button_to "New product", new_store_product_path(@store), id: 'addNewProduct', method: :get
+					- if @products.present?
+						%table.tables
+							%thead
+								%tr
+									%th Name
+									%th Price
+									%th Actions
+							%tbody
+								- @products.each do |p|
+									%tr
+										%td= link_to p.name, store_product_path(@store, p)
+										%td= number_to_currency(p.price)
+										%td
+											= link_to "Edit", edit_store_product_path(@store, p)
+											= link_to "Delete", store_product_path(@store, p), method: :delete
+					- else
 
+					
+		.half
+			.module
+				.module__header Statistics
+				.module__details
+					= button_to "Edit settings", edit_store_path(@store), method: :get
 
-	- else
-		- @products.each do |p|
-			= link_to p.name, store_product_path(@store, p)
+		

@@ -1,8 +1,8 @@
 
 <%= form_with(model: [@store, @product], local: true) do |f|%>
-	<div class="row">
+	<div class="col">
 
-		<div class="col-half">
+		<div class="half">
 			 <div class="form-group">
 				<%= f.label :name, class: "form-label" %>
 				<%= f.text_field :name, class: "form-input" %>
@@ -23,7 +23,7 @@
 				<%= f.file_field :image, class: "form-input" %>
 			</div>
 		</div>
-		<div class="col-half">
+		<div class="half">
 			<p class="lead">Add more pictures to this product</p>
 			<div class="form-group">
 				<%= f.fields_for :assets do |assets| %>

@@ -7,5 +7,7 @@
 		= u.password_field :password_confirmation, placeholder: 'Confirm Password'
 
 	= f.text_field :name, placeholder: 'Your store name'
+	= f.label "What will you be selling?"
+	= f.collection_select :category_id, Category.order(:name), :id, :name
 	
 	= f.submit "Create your store"

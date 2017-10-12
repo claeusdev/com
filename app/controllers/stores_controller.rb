@@ -5,6 +5,7 @@ class StoresController < ApplicationController
 	def new
 		@store = Store.new
 		@store.build_user
+		@categories = Category.all
 	end
 
 	def show

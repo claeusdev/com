@@ -75,7 +75,7 @@ class ProductsController < ApplicationController
 
 		respond_to do |format|
 			if @product.destroy
-				format.html { redirect_to store_products_path, notice: 'Product Successfully deleted!!'}
+				format.html { redirect_to store_dashboard_path(@store), notice: 'Product Successfully deleted!!'}
 			end
 		end
 	end
