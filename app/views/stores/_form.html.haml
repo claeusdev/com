@@ -1,7 +1,7 @@
 = form_with(model: store, locale: true) do |f|
 	= f.fields_for :user do |u|
 
-		= u.text_field :name, placeholder: 'Full Name'
+		= u.text_field :full_name, placeholder: 'Full Name'
 		= u.email_field :email, placeholder: 'Email'
 		= u.password_field :password, placeholder: 'Password'
 		= u.password_field :password_confirmation, placeholder: 'Confirm Password'

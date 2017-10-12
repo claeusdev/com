@@ -1,8 +1,9 @@
-#dashboard
-  .wrapper
-    .dash-header
-      .heading= @store.name
-    #stats
-      .panel
-    
-    #products
+.wrapper
+	-if @store.products.count == 0
+		%p Please add your first product
+		= button_to "Add first item", new_store_product_path(@store), method: :get
+
+
+	- else
+		- @products.each do |p|
+			= link_to p.name, store_product_path(@store, p)

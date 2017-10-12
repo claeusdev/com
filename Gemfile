@@ -25,6 +25,11 @@ gem 'neat', '~> 2.1'
 gem 'autoprefixer-rails'
 gem 'normalize-rails', '~> 4.1', '>= 4.1.1'
 
+gem 'carrierwave'
+gem 'rmagick'
+
+gem 'friendly_id', '~> 5.1.0'
+
 group :development, :test do
   gem 'pry', '~> 0.11.1'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

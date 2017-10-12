@@ -1,3 +1,35 @@
-%h2= @store.name
+.page-header
+	.wrapper
+		.store-header
+			.store-header-content
+				.row
+					.col-full
+						.store-info
+							%h2.store-name= @store.name
+							-# .badge.badge-alert= @store.store_type 
+						-# .brand-desc= @store.description
+						-# .followers
+						-# 	= pluralize(@store.followers.count, "follower")
+						-# .actions= follow_button (@store)
+						-# .share-btns= social_share_button_tag(@store.name)
+						
 
-%p= link_to "Visit Dashboard", store_dashboard_path(@store)
+.section
+	.store-pane
+		.wrapper
+			.col
+				- @products.each do |p| 
+					.quarter
+						= link_to store_product_path(@store, p) do
+							.card
+								.card-image
+									%img{:src => "#{p.image.url(:medium)}", :alt => ""}/
+								.card-header
+									.product-name= p.name.truncate_words(4) 
+								.card-body
+									.price= number_to_currency((p.price).to_i, unit: "GHS")
+	    
+
+								
+
+

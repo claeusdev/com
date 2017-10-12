@@ -1,6 +1,9 @@
 class Store < ApplicationRecord
+	extend FriendlyId
+  friendly_id :name, use: :slugged
+  
   belongs_to :user
-
+  has_many :products
   validates :name, presence: true
 
   accepts_nested_attributes_for :user
