@@ -5,6 +5,11 @@
 	border-radius: $base-border-radius
 	margin: ($base-spacing * 2) auto $base-spacing
 	padding: $base-spacing
+	width: 100%
+	@media screen and (max-width: 540px)
+		// margin: $base-spacing -$base-spacing
+		padding: $small-spacing
+		width: 100%
 
 	.dialog__heading
 		height: 40px
@@ -24,5 +29,5 @@
 	max-width: 45rem
 	min-height: 25rem
 
-		
+			
 

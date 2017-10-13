@@ -24,7 +24,7 @@
 			</div>
 		</div>
 		<div class="half">
-			<p class="lead">Add more pictures to this product</p>
+			<p class="section-header">Add more pictures to this product</p>
 			<div class="form-group">
 				<%= f.fields_for :assets do |assets| %>
 					<% if assets.object.new_record? %>
@@ -41,5 +41,5 @@
 		</div>
 	</div>
    
-	<%= f.submit id: "productSave" %>
+	<p style="text-align: center"><%= f.submit "Add this product" %></p> 
 <% end %>
