@@ -3,6 +3,7 @@ $gutter: 20px;
 // Typography
 $base-font-family: "Proxima Nova", $font-stack-helvetica;
 $heading-font-family: $base-font-family;
+$small-font-size: 0.75em;
 
 // Line height
 $base-line-height: 1.5;
@@ -20,7 +21,7 @@ $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #ddd;
 $red: #ed3e44;
-
+$gray: rgba(235,235,235,0.6);
 // Font Colors
 $base-font-color: $dark-gray;
 $action-color: $red;

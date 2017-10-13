@@ -15,17 +15,17 @@
 						
 
 .section
-	.store-pane
-		.wrapper
+	.wrapper
+		.store-pane
 			.col
 				- @products.each do |p| 
 					.quarter
 						= link_to store_product_path(@store, p) do
 							.card
 								.card-image
-									%img{:src => "#{p.image.url(:medium)}", :alt => ""}/
+									%img{:src => "#{p.image.url(:medium)}", :alt => "#{p.name}"}/
 								.card-header
-									.product-name= p.name.truncate_words(4) 
+									%span.product-name= p.name.truncate_words(2) 
 								.card-body
 									.price= number_to_currency((p.price).to_i, unit: "GHS")
 	    

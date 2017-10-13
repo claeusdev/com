@@ -1,3 +1,8 @@
+a
+	text-decoration: none
+	&:hover
+		text-decoration: underline
+		
 .wrapper
 	box-sizing: border-box
 	margin: 0 auto
@@ -11,3 +16,53 @@
 		padding: 0 20px
 	@media only screen and (max-width: 540px)
 		padding: 0 15px
+		
+.section
+	min-height: 50vh
+
+.section-header 
+	text-align: center
+	display: block
+	padding: 20px 0 24px
+	font-size: 18px
+	font-weight: 700
+	text-transform: uppercase
+	letter-spacing: 3px
+	color: #525252
+	@media only screen and (max-width: 540px)
+		padding-bottom: 24px
+
+
+$flashes: ("alert": #fff6bf,"error": #fbe3e4,"notice": #e5edf8,"success": #e6efc2,) !default
+
+@each $flash-type, $color in $flashes 
+	.flash-#{$flash-type} 
+		background-color: $color
+		color: shade($color, 60%)
+		display: block
+		margin-bottom: $base-spacing / 2
+		padding: $base-spacing / 2
+		text-align: center
+
+		a 
+			color: shade($color, 70%)
+			text-decoration: underline
+
+			&:focus,
+			&:hover 
+				color: shade($color, 90%)
+
+
+// Badges
+$badges: ("alert": #fff6bf,"default": #999,"error": #fbe3e4,"notice": #e5edf8,"success": #e6efc2) !default
+
+@each $badge-type, $color in $badges 
+	.badge-#{$badge-type} 
+		background-color: $color
+		border-radius: $small-font-size * 5
+		color: darken($color, 60%)
+		display: inline-block
+		font-size: $small-font-size
+		line-height: 1
+		padding: 0.4em 1.2em
+		display: inline-block

@@ -6,37 +6,15 @@
 			.excerpt
 				All on a marketplace where people shop socially.
 
+	%article
+		.section-header Browse by Category
 
-			.section-header Browse by Category
-			= link_to "View all categories", categories_path
-
-			.grid-container
-				.grid
-					- @categories.each do |cat|
-						.quarter
-							= link_to cat do
-								.grid-tile
-									.tile-img{ style: "background-image:  url('#{cat.avatar.url(:medium)}')"  }
-									.tile-name= cat.name
-			-# %ul.bullets
-			-# 	%li.bullet
-			-# 		.bullet-icon.bullet-icon-1
-			-# 			%img{:src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png", :alt => ""}/ 
-			-# 		.bullet-content
-			-# 			%h2 Super simple setup
-			-# 			%p Getting started is quick and easy. We know you’re busy, so let us handle all the complicated stuff, while you get back to doing what you love.
-
-			      
-			-# 	%li.bullet
-			-# 		.bullet-icon.bullet-icon-2
-			-# 			%img{:src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png", :alt => ""}/ 
-			-# 		.bullet-content
-			-# 			%h2 Sell with no fees
-			-# 			%p Dont worry about listing fees and someone taking a cut of your sales! With Claeus, you can list and sell for free.
-
-			-# 	%li.bullet
-			-# 		.bullet-icon.bullet-icon-2
-			-# 			%img{:src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png", :alt => ""}/ 
-			-# 		.bullet-content
-			-# 			%h2 Easy management
-			-# 			%p Easily track the status of your orders, print professionally formatted receipts.
+		.grid-container
+			.grid
+				- @categories.each do |cat|
+					.quarter
+						= link_to cat do
+							.grid-tile
+								.tile-img{ style: "background-image:  url('#{cat.avatar.url(:medium)}')"  }
+								.tile-name= cat.name
+			-# = link_to "View all categories", categories_path

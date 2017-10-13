@@ -5,11 +5,10 @@ class Store < ApplicationRecord
   belongs_to :user
   belongs_to :category
 
-  has_many :products
+  has_many :products, dependent: :destroy
   
   validates :name, presence: true
 
-  accepts_nested_attributes_for :user
 
   # before_validation :check_for_existing_user_store
 

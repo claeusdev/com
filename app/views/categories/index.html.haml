@@ -1,13 +1,14 @@
 
 .page
-	.section
-		%article
-			.section-header All Categories
-			.grid-container
-				.grid
-					- @categories.each do |cat|
-						.col-quarter
-							= link_to cat do
-								.grid-tile
-									.tile-img{ style: "background-image:  url('#{cat.avatar.url(:medium)}')"  }
-									.tile-name= cat.name
+	.wrapper
+		.section
+			%article
+				.section-header All Categories
+				.grid-container
+					.grid
+						- @categories.each do |cat|
+							.quarter
+								= link_to cat do
+									.grid-tile
+										.tile-img{ style: "background-image:  url('#{cat.avatar.url(:medium)}')"  }
+										.tile-name= cat.name

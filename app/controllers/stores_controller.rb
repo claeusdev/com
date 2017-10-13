@@ -20,9 +20,10 @@ class StoresController < ApplicationController
 
 	def create
 		@store = Store.new(store_params)
+		@store.user_id = current_user.id
 		if @store.save
 			respond_to do |format|
-				format.html { redirect_to store_dashboard_path(@store), notice: "Store created succesfully!, please login to continue"
+				format.html { redirect_to store_dashboard_path(@store), notice: "Store created succesfully!"
 }
 			end
 		else
@@ -39,6 +40,6 @@ class StoresController < ApplicationController
 	end
 
 	def store_params
-		params.require(:store).permit(:name, :slug, user_attributes: [:id, :full_name, :email, :password, :password_confirmation])
+		params.require(:store).permit(:name, :slug, :category_id, :user_id)
 	end
 end
