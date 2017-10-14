@@ -1,10 +1,63 @@
-.wrapper
-	.col
-		.six
-			%h2 Start selling smarter, better and faster
-		.six
+.sell-page
+	.page
+		%article.white
+			.wrapper
+				.section
+					.title Start selling smarter, better and faster
+					.excerpt Grow your brand easily
+					.col
+						.half
+							.section-header How it works
+							%ul.bullets
+								%li.bullet
+									.bullet-icon.bullet-icon-1
+										%img{:src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png", :alt => ""}/ 
+									.bullet-content
+										%h2 Create your store
+										%p The shorter the name the easier to remember.
+										
+								%li.bullet
+									.bullet-icon.bullet-icon-2
+										%img{:src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png", :alt => ""}/ 
+									.bullet-content
+										%h2 Add your products
+										%p Remember to name your products well.
+										
+								%li.bullet
+									.bullet-icon.bullet-icon-2
+										%img{:src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png", :alt => ""}/ 
+									.bullet-content
+										%h2 Easily manage products
+										%p From your easy to use dashboard you can grow your brand.
+										
+						.half
+							-# - if user_signed_in?
+							.new-store-form
+								.module
+									.module__header Create your store
+									.module__details
+										- if user_signed_in?
+											= render 'form', store: @store
+										- else
+											.center__item
+												= button_to "Get started!", new_user_registration_path, method: :get
+		%article.white
+			.wrapper
+				.section
+					.section-header Everything you need to get you started.
+					%br/
+					.col
+						.quarter
+							%h2 Super simple setup
+							%p Getting started is quick and easy. Let us handle all the complicated stuff, while you get back to doing what you love.
 
-			.dialog-box
-				.dialog-box__header 
-
-				= render 'form', store: @store
+						.quarter
+							%h2 List and sell with no fees
+							%p Dont worry about listing fees and someone taking a cut of your sales! With Claeus, you can list and sell for free.
+						.quarter
+							%h2 Very easy to use dashboard
+							%p  Our very simple dashboard makes you manage inventory with ease.
+						.quarter
+							%h2 Great mobile experience
+							%p Your store is optimized for a great mobile shopping experience.
+%hr/

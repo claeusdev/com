@@ -1,7 +1,6 @@
 = form_with(model: store, locale: true) do |f|
 
 	= f.text_field :name, placeholder: 'Your store name'
-	= f.label "What will you be selling?"
-	= f.collection_select :category_id, Category.order(:name), :id, :name
+	= f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: 'What will you be selling?'
 	
 	= f.submit "Create your store"

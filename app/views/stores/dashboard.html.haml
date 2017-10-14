@@ -4,7 +4,8 @@
 			.col
 				.one
 					.medium-dialog-box
-						.dialog__heading Dashboard
+						.dialog__heading Your Dashboard
+						-# %span= link_to "See store", store_path(@store)
 						.dialog__content
 							= button_to "New product", new_store_product_path(@store), id: 'addNewProduct', method: :get
 							
