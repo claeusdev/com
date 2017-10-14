@@ -29,7 +29,13 @@ gem 'carrierwave'
 gem 'rmagick'
 
 gem 'friendly_id', '~> 5.1.0'
+gem "fog-aws"
+gem 'rmagick'
 
+
+group :production do
+  gem 'rails_12factor'
+end
 group :development, :test do
   gem 'pry', '~> 0.11.1'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
