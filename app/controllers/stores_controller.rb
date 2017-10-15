@@ -21,15 +21,16 @@ class StoresController < ApplicationController
 	def create
 		@store = Store.new(store_params)
 		@store.user_id = current_user.id
-		if @store.save
-			respond_to do |format|
-				format.html { redirect_to store_dashboard_path(@store), notice: "Store created succesfully!"
-}
-			end
-		else
-			render :new, error: @store.errors.full_messages.to_sentence
-			Rails.logger.info
-		end
+
+		respond_to do |format|
+      if @store.save
+        format.html { redirect_to @store, notice: 'Bean was successfully created.' }
+        format.json { render :show, status: :created, location: @store }
+      else
+        format.html { render :new }
+        format.json { render json: @store.errors, status: :unprocessable_entity }
+      end
+    end
 	end
 
 

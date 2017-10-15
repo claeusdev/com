@@ -1,5 +1,10 @@
 = form_with(model: store, locale: true) do |f|
-
+	- if @store.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@store.errors.count, "error")} prohibited this Store from being saved:"
+      %ul
+        - @store.errors.full_messages.each do |msg|
+          %li= msg
 	= f.text_field :name, placeholder: 'Your store name'
 	= f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: 'What will you be selling?'
 	

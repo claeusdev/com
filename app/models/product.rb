@@ -7,4 +7,9 @@ class Product < ApplicationRecord
   has_many :assets, dependent: :destroy
   accepts_nested_attributes_for :assets, :allow_destroy => true
   mount_uploader :image, AvatarUploader
+
+  # Validations
+
+  validates :name, :description, :price, :assets, :store, :image, presence: true
+  validates :price, numericality: true
 end

@@ -1,0 +1,33 @@
+
+= form_with(model: [@store, @product], local: true) do |f|
+	- if @product.errors.any?
+		#error_explanation
+			%h2= "#{pluralize(@product.errors.count, "error")} prohibited this product from being saved:"
+			%ul
+				- @product.errors.full_messages.each do |msg|
+					%li= msg
+	.col
+		.half
+			= f.label :name
+			= f.text_field :name
+			
+			= f.label :description
+			= f.text_area :description
+
+			= f.label :price
+			= f.text_field :price
+
+	
+			= f.label :image
+			= f.file_field :image
+
+		.half
+			%p.section-header Add more pictures to this product
+			= f.fields_for :assets do |assets| 
+				- if assets.object.new_record? 
+					%p= assets.file_field :image
+
+				- else
+					= link_to image_tag(assets.object.image.url(:thumb)), assets.object.image.url(:medium)
+					
+	%p{ style: "text-align: center"}= f.submit "Add this product"

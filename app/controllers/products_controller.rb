@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 	before_action :set_product, only: [:edit, :update, :destroy]
 	before_action :authenticate_user!, except: :show
+
 	def show
 		set_product
 		# @order = Order.new
@@ -46,15 +47,16 @@ class ProductsController < ApplicationController
 	end
 
 	def create
-		@product = Product.new(product_params)
-		@product.store_id = current_user.store.id
+		set_store
+		@product = current_user.store.products.create(product_params)
 
-		if @product.save
-			 redirect_to store_dashboard_url(@product.store), notice: "Product added successfully"
-		else
-			 render 'new'
+		respond_to do |format|
+			if @product.save
+				 format.html { redirect_to store_dashboard_url(@product.store), notice: "Product added successfully" }
+			else
+				 format.html { redirect_to new_store_product_path(@store), error: "Product wasnt saved. Please check and try again" }
+			end
 		end
-
 	end
 
 	def update
