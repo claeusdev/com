@@ -15,9 +15,9 @@
               = f.text_field :q, class: "mainNavSearch js-globalSearchInput", placeholder: "Search products, stores, tags ...", data: { behavior: 'autocomplete'}, id: "desktopSearchInput"
         
           .nav-action.show-search{style: "background-image: url(#{image_path "search.png"})"}
-
-        .js-userNav.userNav
-          - if user_signed_in?
+        - if user_signed_in?
+          .js-userNav.userNav
+          
             .nav-profile.nav-action.account-action{ style: "background-image:  url('#{current_user.avatar.url}')"  }
             .menuNav
               .menuNav-arrow
@@ -34,22 +34,23 @@
                 = link_to "Edit Profile", edit_user_registration_path(current_user), class: "menuNav-item"
                 = link_to "Log Out", destroy_user_session_path, method: :delete, class: "menuNav-item"
             
-          - else
-            -# .menuNav-list
-            = button_to "Join/Login", new_user_session_path, class: "round-corner", method: :get
-        
+          .notification-container
+            .nav-action.nav-action-notifications{'data-behavior' => 'read-notifications'} 
+              .closeNotifications
+              .notificationsCount{data: {behavior: 'unread-count'} } 
+              .notifications{'data-behavior' => 'notifications'} 
+                .menuNav
+                  .menuNav-arrow
+                  .menuNav-scrim
+                  .menuNav-list{'data-behavior' => 'notification-items'} 
+        - else
+          -# .menuNav-list
+          = button_to "Join/Login", new_user_session_path, class: "round-corner", method: :get
+      
             
             
       
-        .notification-container
-          .nav-action.nav-action-notifications{'data-behavior' => 'read-notifications'} 
-            .closeNotifications
-            .notificationsCount{data: {behavior: 'unread-count'} } 
-            .notifications{'data-behavior' => 'notifications'} 
-              .menuNav
-                .menuNav-arrow
-                .menuNav-scrim
-                .menuNav-list{'data-behavior' => 'notification-items'} 
+        
                   
                     
             

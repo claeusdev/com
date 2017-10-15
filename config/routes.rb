@@ -13,7 +13,12 @@ Rails.application.routes.draw do
   
   resources :categories
   resources :stores do
-  	resources :products
+  	resources :products do
+      member do
+        post "like", :to => 'likes#create'
+        delete "unlike", :to => 'likes#destroy'
+      end
+    end
 
   	get 'dashboard'
 

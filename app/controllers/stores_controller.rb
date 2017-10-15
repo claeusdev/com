@@ -24,7 +24,7 @@ class StoresController < ApplicationController
 
 		respond_to do |format|
       if @store.save
-        format.html { redirect_to @store, notice: 'Bean was successfully created.' }
+        format.html { redirect_to @store, notice: 'Your store was successfully created.' }
         format.json { render :show, status: :created, location: @store }
       else
         format.html { render :new }

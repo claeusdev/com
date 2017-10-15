@@ -7,6 +7,9 @@
 
 					.product-actions
 						.actions-container
+							.span.action-like.action-showText
+								= like_link(@product)
+
 							-# - if user_signed_in?
 							-# 	%span.action-like.action-showText
 							-# 		= link_to like_path(product_id: @product.id), class: "#{'is-liked' if current_user.likes!(@product)}", method: :post do
