@@ -6,12 +6,16 @@
 					.col-full
 						.store-info
 							%h2.store-name= @store.name
-							-# .badge.badge-alert= @store.store_type 
-						-# .brand-desc= @store.description
-						-# .followers
-						-# 	= pluralize(@store.followers.count, "follower")
-						-# .actions= follow_button (@store)
-						-# .share-btns= social_share_button_tag(@store.name)
+							.store-info__container
+								.store-info__following= pluralize(@store.followers.count, "follower")
+								%br/
+								- if @store.description.blank?
+									%p Go into your settings and describe your store in a few words.
+								- else
+									.store-desc= @store.description
+								= follow_button @store
+								
+						
 						
 
 .section

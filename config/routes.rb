@@ -16,6 +16,11 @@ Rails.application.routes.draw do
   	resources :products
 
   	get 'dashboard'
+
+    member do
+      post 'follow', :to => 'followings#create'
+      delete 'unfollow', :to => 'followings#destroy'
+    end
   end
   
   get 'pages/index'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171012232607) do
+ActiveRecord::Schema.define(version: 20171015110527) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 20171012232607) do
     t.string "avatar"
     t.string "slug"
     t.index ["slug"], name: "index_categories_on_slug", unique: true
+  end
+
+  create_table "followings", force: :cascade do |t|
+    t.bigint "follower_id"
+    t.bigint "store_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["follower_id"], name: "index_followings_on_follower_id"
+    t.index ["store_id"], name: "index_followings_on_store_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -53,6 +62,7 @@ ActiveRecord::Schema.define(version: 20171012232607) do
     t.datetime "updated_at", null: false
     t.string "image"
     t.string "slug"
+    t.integer "stock"
     t.index ["slug"], name: "index_products_on_slug", unique: true
     t.index ["store_id"], name: "index_products_on_store_id"
   end
@@ -64,6 +74,7 @@ ActiveRecord::Schema.define(version: 20171012232607) do
     t.datetime "updated_at", null: false
     t.string "slug"
     t.bigint "category_id"
+    t.text "description"
     t.index ["category_id"], name: "index_stores_on_category_id"
     t.index ["slug"], name: "index_stores_on_slug", unique: true
     t.index ["user_id"], name: "index_stores_on_user_id"
@@ -92,6 +103,7 @@ ActiveRecord::Schema.define(version: 20171012232607) do
   end
 
   add_foreign_key "assets", "products"
+  add_foreign_key "followings", "stores"
   add_foreign_key "products", "stores"
   add_foreign_key "stores", "categories"
   add_foreign_key "stores", "users"

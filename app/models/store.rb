@@ -6,6 +6,8 @@ class Store < ApplicationRecord
   belongs_to :category
 
   has_many :products, dependent: :destroy
+  has_many :followings, dependent: :destroy
+  has_many :followers, through: :followings
   
   validates :name, presence: true
 
