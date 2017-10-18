@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  get :search, controller: :search
   get 'users/show'
 
   get :about, :to => 'pages#about'
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :stores do
   	resources :products do
+      resources :comments
       member do
         post "like", :to => 'likes#create'
         delete "unlike", :to => 'likes#destroy'

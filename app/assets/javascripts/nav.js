@@ -18,6 +18,6 @@ $(document).on("turbolinks:load", function () {
   $(".show-search").on("click", function(){
     $('body').addClass('showingMobileSearch');
     $('.navUserSection').hide();
-    $('.mobileSearch').css('display', 'block');
+    $('.mainNavSearch-container').css('display', 'block');
   });
 });

@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   has_many :followings
   has_many :followed_stores, through: :followings
-
+  has_many :comments, dependent: :destroy
   has_many :likes
   has_many :liked_products, through: :likes, source: :product
 

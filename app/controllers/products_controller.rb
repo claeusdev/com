@@ -4,8 +4,9 @@ class ProductsController < ApplicationController
 
 	def show
 		set_product
+
 		# @order = Order.new
-		# @comments = Comment.where(product: @product).order('created_at ASC')
+		@comments = Comment.where(product: @product).order('created_at ASC')
 		# @meta_description = "#{@product.description}"
 		# set_meta_tags title: @product.name,
 		# 							site: 'Claeus',

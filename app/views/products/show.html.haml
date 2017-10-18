@@ -66,13 +66,21 @@
 					.product-detail-header
 						.header-title Description
 					.product-description= sanitize(@product.description)
+				%br/
 
-				-# .comments-container
-				-# 	= form_for [@product.store, @product,  @product.comments.build], remote: true do |f|
-				-# 		-# = f.hidden_field :product_id, value: @product.id
-				-# 		= f.text_area :body, class: 'form-input'
-				-# 		= f.submit "Post comment"
+
+				.section-header Write a comment
+				- if user_signed_in?
+					#comments
+						= render @comments
+					.comments-container
+						= form_for [@product.store, @product,  @product.comments.build], remote: true do |f|
+							-# = f.hidden_field :product_id, value: @product.id
+							= f.text_area :body, class: 'form-input'
+							= f.submit "Post comment"
+						
+
 					
-
-				-# #comments
-				-# 	= render @comments
+				- else 
+					%h1.section-header Sign up to like and comment.
+					%p{ style: 'text-align: center'}= button_to "Sign Up", new_user_registration_path, method: :get
