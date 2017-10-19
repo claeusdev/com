@@ -9,7 +9,7 @@ class FollowingsController < ApplicationController
 
     # Creating notifications
 
-    # Notification.create(recipient: @store, actor: current_user, action: " followed your ", notifiable: @store )
+    Notification.create(recipient: @store, actor: current_user, action: " followed your ", notifiable: @store )
     redirect_to @store, notice: "You have successfully followed #{@store.name}, you will have updates of new products from them on your timeline"
   end
 
@@ -17,7 +17,7 @@ class FollowingsController < ApplicationController
     current_user.unfollow(@store, current_user)
     @user = @store.user
     # FollowMailer.unfollow_message(@user).deliver
-    # Notification.create(recipient: @store, actor: current_user, action: " unfollowed", notifiable: @store )
+    Notification.create(recipient: @store, actor: current_user, action: " unfollowed", notifiable: @store )
     redirect_to @store, notice: "You just unfollowed #{@store.name}!, You'll no longer recieve updates form this user."
   end
 

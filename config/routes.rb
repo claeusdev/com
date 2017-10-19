@@ -13,6 +13,12 @@ Rails.application.routes.draw do
 
   get :blog, to: 'pages#blog'
   
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
+  end
+
   resources :categories
   resources :stores do
   	resources :products do

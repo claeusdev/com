@@ -6,9 +6,10 @@
 	.wrapper
 		.col
 			- if @products.empty?
-				.one
-					.headline Sorry, no products match your search
-					-# .dummy{style: "background-image: url(#{image_path 'cart.png'})"}
+				.section
+					.one
+						.headline Sorry, no products match your search
+						.sdummy{style: "background-image: url(#{image_path 'search.png'})"}
 				
 
 			- else
