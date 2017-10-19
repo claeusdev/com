@@ -24,15 +24,13 @@
 			.col
 				- @products.each do |p| 
 					.quarter
-						= link_to store_product_path(@store, p) do
+						= link_to store_product_path(p.store, p) do
 							.card
 								.card-image
 									%img{:src => "#{p.image.url(:medium)}", :alt => "#{p.name}"}/
-								.card-header
-									%span.product-name= p.name.truncate_words(2) 
-								.card-body
-									.price= number_to_currency((p.price).to_i, unit: "GHS")
-	    
+								.card-header= p.name.truncate(30) 
+								.card-copy= number_to_currency((p.price).to_i, unit: "GHS")
+    
 
 								
 

@@ -8,7 +8,6 @@ module ProductsHelper
 				link_to "Like", like_store_product_path(product), method: :post
 			end
 		end
-	else
-		"Sign up to like"
 	end
+	
 end

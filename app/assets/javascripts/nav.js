@@ -15,9 +15,11 @@ $(document).on("turbolinks:load", function () {
     }
   });
 
+
   $(".show-search").on("click", function(){
     $('body').addClass('showingMobileSearch');
     $('.navUserSection').hide();
-    $('.mainNavSearch-container').css('display', 'block');
+    $('.mobileSearch').css('display', 'block');
   });
+
 });

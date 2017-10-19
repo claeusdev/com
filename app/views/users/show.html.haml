@@ -10,7 +10,7 @@
 						.user-info__following 100 Followers
 						.user-info__following 100 Followings
 				- if @user.store.present?
-					= button_to "Visit #{@user.store.name}", store_path(@user.store), method: :get 
+					= button_to "Visit their store", store_path(@user.store), method: :get 
 
 				- elsif current_user == @user 
 					= button_to "Start Selling", new_store_path, method: :get

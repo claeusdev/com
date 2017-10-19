@@ -1,30 +1,28 @@
 
-.page
-	.section
-		%article.white
-			%br/
-			.section-header Search Results
-			.wrapper
-				.col
-					- if @products.empty?
-						.one
-							.headline Sorry, no products match your search
-							-# .dummy{style: "background-image: url(#{image_path 'cart.png'})"}
-						
+-# .section
+%article.white
+	%br/
+	.section-header Search Results
+	.wrapper
+		.col
+			- if @products.empty?
+				.one
+					.headline Sorry, no products match your search
+					-# .dummy{style: "background-image: url(#{image_path 'cart.png'})"}
+				
 
-					- else
-						- @products.each do |p| 
-							.half
-								.comment
-									.comment-image
-										%img{:src => "#{p.image.url(:medium)}", :alt => ""}/
-									.comment-content
-										%h1= link_to p.name, store_product_path(p.store, p)
-										%p.price= number_to_currency(p.price, unit: 'GHC')
-										%p.comment-detail= link_to p.store.name, store_path(p.store) 
- 
-								
-				= paginate @products
+			- else
+				- @products.each do |p| 
+					.quarter
+						= link_to store_product_path(p.store, p) do
+							.card
+								.card-image
+									%img{:src => "#{p.image.url(:medium)}", :alt => "#{p.name}"}/
+								.card-header= p.name.truncate(20) 
+								.card-copy= number_to_currency((p.price).to_i, unit: "GHS")
+
+						
+		= paginate @products
 									
 					
 
