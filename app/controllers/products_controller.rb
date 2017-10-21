@@ -55,7 +55,7 @@ class ProductsController < ApplicationController
 			if @product.save
 				 format.html { redirect_to store_dashboard_url(@product.store), notice: "Product added successfully" }
 			else
-				 format.html { redirect_to new_store_product_path(@store), error: "Product wasnt saved. Please check and try again" }
+				 format.html { render :new }
 			end
 		end
 	end
