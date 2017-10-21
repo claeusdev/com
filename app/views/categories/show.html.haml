@@ -11,5 +11,5 @@
 						.quarter
 							.grid-tile
 								= link_to s.name, s, class: "tile-name"
-							
+								%p= pluralize(s.products.count, "product")
 	
