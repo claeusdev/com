@@ -33,7 +33,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'ransack'
 gem 'kaminari'
 
-
+gem 'newrelic_rpm'
 
 group :production do
   gem 'rails_12factor'
