@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 		@store = @product.store
 		if @comment.save
 
-	    Notification.create(recipient: @store, actor: current_user, action: " commented on your ", notifiable: @product )
+	    # Notification.create(recipient: @store, actor: current_user, action: " commented on your ", notifiable: @product )
 
 			respond_to do |format|
 				format.js 

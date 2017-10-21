@@ -27,7 +27,7 @@ $ ->
 		handleSuccess: (data) =>
 			console.log(data)
 			items = $.map data, (notification) ->
-				"<a class='menuNav-item' href="#{notification.url}">#{notification.actor.username} #{notification.action} #{notification.notifiable.type} </a>"
+				"<a class='menuNav-item' href='#{notification.url}'>#{notification.actor.username} #{notification.action} #{notification.notifiable.type} </a>"
 			
 			none = "<p class='menuNav-item'>No new notifications"
 			$("[data-behavior='unread-count']").text(items.length)
