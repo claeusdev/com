@@ -26,10 +26,10 @@ gem 'autoprefixer-rails'
 gem 'normalize-rails', '~> 4.1', '>= 4.1.1'
 
 gem 'carrierwave'
+gem 'cloudinary'
 gem 'rmagick'
 
 gem 'friendly_id', '~> 5.1.0'
-gem "fog-aws"
 gem 'ransack'
 gem 'kaminari'
 
