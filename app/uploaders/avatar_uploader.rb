@@ -15,20 +15,18 @@ class AvatarUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  # Process files as they are uploaded:
-  version :thumb do
-    process resize_to_fill: [200,200]
-  end
   # def scale(width, height)
   #   # do something
   # end
 
   # Create different versions of your uploaded files:
   version :thumb do
+    process convert: 'jpg'
     process resize_to_fit: [100, 100]
   end
 
   version :medium do
+    process convert: 'jpg'
     process resize_to_fit: [600, 600]
   end
   # Add a white list of extensions which are allowed to be uploaded.
@@ -43,10 +41,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
-  process convert: 'png'
+  # process convert: 'png'
 
-  def filename
-    super.chomp(File.extname(super)) + '.png' if original_filename.present?
-  end
+  # def filename
+  #   super.chomp(File.extname(super)) + '.png' if original_filename.present?
+  # end
 
 end
