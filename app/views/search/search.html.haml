@@ -18,7 +18,7 @@
 						= link_to store_product_path(p.store, p) do
 							.card
 								.card-image
-									%img{:src => "#{p.image.url(:medium)}", :alt => "#{p.name}"}/
+									%img{:src => "#{p.image.url}", :alt => "#{p.name}"}/
 								.card-header= p.name.truncate(20) 
 								.card-copy= number_to_currency((p.price).to_i, unit: "GHS")
 

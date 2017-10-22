@@ -12,9 +12,11 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="nav-spacer"></div>
-  	<% flash.each do |key, value| %>
-      <div class="flash-<%= flasherize(key)%>"><%= value %></div>
-    <% end %>
+    <div id="flash_wrapper">
+      <% flash.each do |key, value| %>
+        <div class="flash-<%= flasherize(key)%>"><%= value %></div>
+      <% end %>
+    </div>
     <%= yield %>
     <%= render 'layouts/footer' %>
 
